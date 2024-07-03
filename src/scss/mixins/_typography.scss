@@ -1,0 +1,24 @@
+@mixin create-typography($texts, $text-heights) {
+  @each $key, $size in $texts {
+    $text-height: map-get($text-heights, $key);
+
+    //text
+    .text-#{$key} {
+      font-size: $size;
+    }
+
+    //body
+    .b#{$key} {
+      font-size: $size;
+      font-weight: 400;
+      line-height: $text-height;
+    }
+
+    //heading
+    .h#{$key} {
+      font-size: $size;
+      font-weight: 500;
+      line-height: $text-height;
+    }
+  }
+}
