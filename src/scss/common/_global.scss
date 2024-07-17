@@ -1,5 +1,5 @@
-#root {
-  font-family: "Poppins", sans-serif;
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -17,4 +17,26 @@ a {
 
 .rounded-full {
   border-radius: 100rem !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.zoom-enter .content {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.zoom-enter-active .content {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms, transform 250ms;
+}
+.zoom-exit .content {
+  opacity: 1;
+}
+.zoom-exit-active .content {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 250ms, transform 250ms;
 }

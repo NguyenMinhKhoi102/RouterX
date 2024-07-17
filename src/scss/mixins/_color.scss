@@ -1,0 +1,41 @@
+@mixin creat-colors($colors) {
+  @each $key, $color in $colors {
+    .text-#{$key} {
+      color: $color;
+    }
+
+    .bg-#{$key} {
+      background-color: $color;
+    }
+
+    .border-#{$key} {
+      border: 1px solid $color;
+    }
+
+    .bx-#{$key} {
+      border-right: 1px solid $color;
+      border-left: 1px solid $color;
+    }
+
+    .by-#{$key} {
+      border-top: 1px solid $color;
+      border-bottom: 1px solid $color;
+    }
+
+    .bt-#{$key} {
+      border-top: 1px solid $color;
+    }
+
+    .br-#{$key} {
+      border-right: 1px solid $color;
+    }
+
+    .bb-#{$key} {
+      border-bottom: 1px solid $color;
+    }
+
+    .bl-#{$key} {
+      border-left: 1px solid $color;
+    }
+  }
+}

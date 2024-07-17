@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Nav_List } from "@/constants";
+import { Link } from "react-router-dom";
+import ModalBase from "./Modal";
 
 const HeaderStyle = styled.div`
   display: flex;
@@ -39,24 +42,49 @@ const AppointmentTextStyle = styled.i`
 `;
 
 const AppHeader = () => {
+  const [show, setShow] = useState(false);
   return (
-    <HeaderStyle>
-      <LogoStyle>
-        <img src="/src/assets/logo/logo.svg" alt="" />
-      </LogoStyle>
-      <NavStyle>
-        <NavItemStyle className="text-navigation text-900">
-          home<i className="fa fa-angle-down" style={{ fontSize: "10px" }}></i>
-        </NavItemStyle>
-        <li>
-          About Us <i className="fa fa-angle-down"></i>
-        </li>
-      </NavStyle>
-      <button className="btn">
-        Get An Appointment{" "}
-        <AppointmentTextStyle className="fa fa-arrow-right"></AppointmentTextStyle>
-      </button>
-    </HeaderStyle>
+    <>
+      <HeaderStyle>
+        <LogoStyle>
+          <img src="/src/assets/logo/logo-header.svg" alt="" />
+        </LogoStyle>
+        <NavStyle>
+          {Nav_List.map((navItem) => (
+            <Link key={navItem.id} to={navItem.path}>
+              <NavItemStyle className="text-navigation text-900">
+                {navItem.name}
+                <i
+                  className="fa fa-angle-down"
+                  style={{ fontSize: "10px" }}
+                ></i>
+              </NavItemStyle>
+            </Link>
+          ))}
+        </NavStyle>
+        <button className="btn" onClick={() => setShow(true)}>
+          Get An Appointment
+          <AppointmentTextStyle className="fa fa-arrow-right"></AppointmentTextStyle>
+        </button>
+      </HeaderStyle>
+      <ModalBase
+        open={show}
+        onClose={() => setShow(false)}
+        wrapperStyle={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        bodyStyle={{
+          background: "white",
+          padding: "10px",
+          width: "500px",
+          height: "500px",
+        }}
+      >
+        Hello word
+      </ModalBase>
+    </>
   );
 };
 
